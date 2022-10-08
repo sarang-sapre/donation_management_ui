@@ -1,0 +1,26 @@
+[
+    {
+      "title": "Add Donation",
+      "img": "../Dashboard/images/reports.png",
+      "path": "/AddDonation",
+      "text": "Add the donation record"
+    },
+    {
+      "title": "Add Usage",
+      "img": "../Dashboard/images/reports.png",
+      "path": "/AddUsage",
+      "text": "Add the usage record"
+    },
+    {
+      "title": "Add Item",
+      "img": "../Dashboard/images/reports.png",
+      "path": "/AddItem",
+      "text": "Add New Items "
+    },
+    {
+      "title": "Reports",
+      "img": "/reports.png",
+      "path": "/Reports",
+      "text": "Genrate and download reports Daily/Monthly/Yearly"
+    }
+  ]

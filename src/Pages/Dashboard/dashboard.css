@@ -1,0 +1,13 @@
+.main {
+    font-family: sans-serif;
+    position: relative;
+    top: 200px;
+    bottom: 200px;
+    left: 4.5%;
+    right: 150px;
+    width: 100%;
+    text-align: center;
+    background:url("../../Logo_2.png") center center no-repeat;
+    opacity:5;
+  }
+  

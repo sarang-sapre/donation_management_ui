@@ -1,0 +1,22 @@
+.container-1 {
+    font-family: sans-serif;
+    position: relative;
+    top: 150px;
+    bottom: 50px;
+    left: 150px;
+    right:150px;
+    width: 50px;
+    text-align: center;
+  }
+  
+  .button{
+    text-align: right;
+  }
+
+  .government {
+    background-color: lightblue!important;
+  }
+  
+  .private {
+    background-color:white !important;
+  }

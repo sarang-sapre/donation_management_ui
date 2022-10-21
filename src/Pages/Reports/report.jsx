@@ -136,11 +136,11 @@ class Reports extends React.Component {
     render() {
         return (
             <div className="Container-1">
-                <Form>
+                <Form validated="true">
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridReportType">
                             <Form.Label>Report Type</Form.Label>
-                            <Form.Select id='ReportType' defaultValue="Choose Type" onChange={this.handleChange}>
+                            <Form.Select id='ReportType'  onChange={this.handleChange}>
                             <option value="">Select Option</option>
                                 <option value={1}>जमा</option>
                                 <option value={2}>खर्च</option>
@@ -148,15 +148,15 @@ class Reports extends React.Component {
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridReportType">
                             <Form.Label>Data Type</Form.Label>
-                            <Form.Select id='DataType' defaultValue="Choose Type" onChange={this.handleChange}>
-                            <option value="">Select Option</option>
+                            <Form.Select id='DataType'  onChange={this.handleChange}>
+                                <option value="">Select Option</option>
                                 <option value={1}>सरकार</option>
                                 <option value={2}>खाजगी</option>
                             </Form.Select>
                         </Form.Group>
                         <Form.Group as={Col} id="formGridIntervalType">
                             <Form.Label>Interval Type</Form.Label>
-                            <Form.Select id='IntervalType' defaultValue="Choose Type" onChange={this.handleChange}>
+                            <Form.Select id='IntervalType'  onChange={this.handleChange}>
                             <option value="">Select Option</option>
                                 <option value="DAILY">Daily</option>
                                 <option value="MONTHLY">Monthly</option>
@@ -169,7 +169,7 @@ class Reports extends React.Component {
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>Month</Form.Label>
-                            <Form.Select id="Month" defaultValue="Choose Type" onChange={this.handleChange}>
+                            <Form.Select id="Month"  onChange={this.handleChange}>
                             <option value="">Select Option</option>
                                 <option value="01">January</option>
                                 <option value="02">February</option>
@@ -187,25 +187,25 @@ class Reports extends React.Component {
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>Year</Form.Label>
-                            <Form.Control id='Year' type='Text' onChange={this.handleChange}/>
+                            <Form.Control required id='Year' type='Text' onChange={this.handleChange}/>
                         </Form.Group>
                     </Row> 
                     : this.state.IsYearly ? 
                     <Row className="mb-3">
                             <Form.Group as={Col}>
                             <Form.Label>Year</Form.Label>
-                            <Form.Control id='Year' type='Text' onChange={this.handleChange}/>
+                            <Form.Control required id='Year' type='Text' onChange={this.handleChange}/>
                         </Form.Group>
                     </Row> 
                     :this.state.IsDaily ?
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>From Date</Form.Label>
-                            <Form.Control id="FromDate" type='date' onChange={this.handleChange}/>
+                            <Form.Control required id="FromDate" type='date' onChange={this.handleChange}/>
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>To Date</Form.Label>
-                            <Form.Control id="ToDate" type='date' onChange={this.handleChange}/>
+                            <Form.Control required id="ToDate" type='date' onChange={this.handleChange}/>
                         </Form.Group>
                     </Row> : ""
                       }

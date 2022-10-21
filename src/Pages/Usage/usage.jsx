@@ -264,7 +264,7 @@ handleSave(params){
            ""
           }
           <Modal.Body>
-            <Form>
+            <Form validated="true">
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridDonnationType">
                   <Form.Label>खर्च प्रकार</Form.Label>
@@ -289,21 +289,21 @@ handleSave(params){
               <Row className="mb-3">
                 <Form.Group as={Col}>
                   <Form.Label>रेकॉर्ड तारीख</Form.Label>
-                  <Form.Control id="RecordDate" type='date' onChange={this.handleFormDataChange}/>
+                  <Form.Control required id="RecordDate" type='date' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 <Form.Group as={Col} >
                   <Form.Label>मात्रा(Kg)</Form.Label>
-                  <Form.Control id="Quantity" type='Number' onChange={this.handleFormDataChange}/>
+                  <Form.Control required id="Quantity" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 </Row>
                 <Row className="mb-3">
                 <Form.Group as={Col} >
                   <Form.Label>रक्कम</Form.Label>
-                  <Form.Control id="Amount" type='Number' onChange={this.handleFormDataChange}/>
+                  <Form.Control required id="Amount" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 <Form.Group as={Col} >
                   <Form.Label>विद्यार्थी संख्या</Form.Label>
-                  <Form.Control id="PersonCount" type='Number' onChange={this.handleFormDataChange}/>
+                  <Form.Control required id="PersonCount" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
               </Row>
             </Form>

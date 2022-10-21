@@ -142,11 +142,11 @@ handleSave(params){
            ""
           }
           <Modal.Body>
-            <Form>
+            <Form validated="true">
               <Row className="mb-3">
                 <Form.Group as={Col}>
                   <Form.Label>वस्तूचे नाव</Form.Label>
-                  <Form.Control id="ItemName" type='text' onChange={this.handleChange}/>
+                  <Form.Control required id="ItemName" type='text' onChange={this.handleChange}/>
                 </Form.Group>
               </Row>
             </Form>

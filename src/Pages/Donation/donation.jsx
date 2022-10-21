@@ -21,7 +21,7 @@ class Donation extends React.Component {
       from_date: '',
       to_date: '',
       ModelShow: false,
-      columnDef: [{ field: 'DONATION_TYPE' , headerName:'देणगी प्रकार'}, { field: 'PRODUCT_NM', filter: 'agTextColumnFilter',headerName:'वस्तूचे नाव' }, { field: 'QUANTITY', filter: 'agNumberColumnFilter', headerName:'मात्रा' }, { field: 'PERSON_COUNT', filter: 'agNumberColumnFilter',headerName:'विद्यार्थी संख्या' },{ field: 'AMOUNT', filter: 'agNumberColumnFilter',headerName:'रक्कम' }, { field: 'RECORD_DATE', type: ['dateColumn', 'nonEditableColumn'], width: 220, headerName:'तारिख' }],
+      columnDef: [{ field: 'DONATION_TYPE', headerName: 'देणगी प्रकार' }, { field: 'PRODUCT_NM', filter: 'agTextColumnFilter', headerName: 'वस्तूचे नाव' }, { field: 'QUANTITY', filter: 'agNumberColumnFilter', headerName: 'मात्रा' }, { field: 'PERSON_COUNT', filter: 'agNumberColumnFilter', headerName: 'विद्यार्थी संख्या' }, { field: 'AMOUNT', filter: 'agNumberColumnFilter', headerName: 'रक्कम' }, { field: 'RECORD_DATE', type: ['dateColumn', 'nonEditableColumn'], width: 220, headerName: 'तारिख' }],
       rowData: null,
       defaultColDef: {
         sortable: true,
@@ -30,14 +30,14 @@ class Donation extends React.Component {
         wrapHeaderText: true,
         autoHeaderHeight: true,
       },
-      rowClassRules : {
-        'government':(params) => {
-            var Type = params.data.DONATION_TYPE
-            return (Type === 'सरकार')
+      rowClassRules: {
+        'government': (params) => {
+          var Type = params.data.DONATION_TYPE
+          return (Type === 'सरकार')
         },
-       'private' : 'data.DONATION_TYPE === "खाजगी"'
+        'private': 'data.DONATION_TYPE === "खाजगी"'
 
-    },
+      },
       rowModelType: 'serverSide',
       paginationPageSize: 20,
       cacheBlockSize: 20,
@@ -46,11 +46,12 @@ class Donation extends React.Component {
       search_text: null,
       SelectedDonationType: 1,
       SelectedProduct: null,
-      RecordDate:null,
-      Quantity:0,
-      Person_count:0,
-      Amount:0,
-      IsAdded:null
+      RecordDate: null,
+      Quantity: 0,
+      Person_count: 0,
+      Amount: 0,
+      IsAdded: null,
+      IsValidation:false
     }
 
     this.GirdData = this.GirdData.bind(this);
@@ -117,7 +118,7 @@ class Donation extends React.Component {
     this.setState({
       ModelShow: false
     })
-  window.location.reload()
+    window.location.reload()
   }
 
   handleDateChange(params) {
@@ -141,28 +142,29 @@ class Donation extends React.Component {
 
         SelectedDonationType: Number(params.target.value)
 
-      })} else if(params.target.id === 'RecordDate'){
-        this.setState({
-          RecordDate:params.target.value
-        })
+      })
+    } else if (params.target.id === 'RecordDate') {
+      this.setState({
+        RecordDate: params.target.value
+      })
 
-      }else if(params.target.id === 'Quantity'){
-        this.setState({
-          Quantity:Number(params.target.value)
-        })
+    } else if (params.target.id === 'Quantity') {
+      this.setState({
+        Quantity: Number(params.target.value)
+      })
 
-      }else if(params.target.id === 'Amount') {
+    } else if (params.target.id === 'Amount') {
 
-        this.setState({
-          Amount:Number(params.target.value)
-        })
+      this.setState({
+        Amount: Number(params.target.value)
+      })
 
-      }else {
-        this.setState({
-          Person_count:Number(params.target.value)
+    } else {
+      this.setState({
+        Person_count: Number(params.target.value)
 
-        })
-      }
+      })
+    }
   }
 
   componentDidMount() {
@@ -181,10 +183,10 @@ class Donation extends React.Component {
     })
 
     axios.post(API_URL.GetProductList, para).then((res) => {
-     let array =[]
-      res.data[0].forEach((e) => array.push({value:e.ID, label:e.PRODUCT_NM}))
+      let array = []
+      res.data[0].forEach((e) => array.push({ value: e.ID, label: e.PRODUCT_NM }))
       this.setState({
-        ProductList:array
+        ProductList: array
       })
     }).catch((err) => {
       alert("Something Went Wrong")
@@ -192,55 +194,55 @@ class Donation extends React.Component {
 
   };
 
-  onInputChange(params){
-  let bodyData = {
-    search_text: params
+  onInputChange(params) {
+    let bodyData = {
+      search_text: params
+    }
+
+    let para = qs.stringify(bodyData)
+
+    axios.post(API_URL.GetProductList, para).then((res) => {
+      let array = []
+      res.data[0].forEach((e) => array.push({ value: e.ID, label: e.PRODUCT_NM }))
+      this.setState({
+        ProductList: array
+      })
+    }).catch((err) => {
+      alert("Something Went Wrong")
+    })
+
   }
 
-  let para = qs.stringify(bodyData)
-
-  axios.post(API_URL.GetProductList, para).then((res) => {
-    let array =[]
-     res.data[0].forEach((e) => array.push({value:e.ID, label:e.PRODUCT_NM}))
-     this.setState({
-       ProductList:array
-     })
-   }).catch((err) => {
-     alert("Something Went Wrong")
-   })
-
-}
-
-onChange(params){
-  this.setState({
-    SelectedProduct:params
-  })
-}
-
-handleSave(params){
-
-  let bodyData = {
-    record_type:1,
-    donation_type:this.state.SelectedDonationType,
-    product:this.state.SelectedProduct.value,
-    record_date:this.state.RecordDate,
-    quantity:this.state.Quantity,
-    person_count:this.state.Person_count,
-    amount:this.state.Amount
+  onChange(params) {
+    this.setState({
+      SelectedProduct: params
+    })
   }
 
-  let para = qs.stringify(bodyData)
+  handleSave(params) {
 
-  axios.post(API_URL.AddDonation, para).then((res) => {
-    console.log(res.data[0][0].status)
-        this.setState({
-          IsAdded:res.data[0][0].status
-        })
-   }).catch((err) => {
-     alert("Something Went Wrong")
-   })
-   window.location.reload()
-}
+    let bodyData = {
+      record_type: 1,
+      donation_type: this.state.SelectedDonationType,
+      product: this.state.SelectedProduct.value,
+      record_date: this.state.RecordDate,
+      quantity: this.state.Quantity,
+      person_count: this.state.Person_count,
+      amount: this.state.Amount
+    }
+
+    let para = qs.stringify(bodyData)
+
+    axios.post(API_URL.AddDonation, para).then((res) => {
+      console.log(res.data[0][0].status)
+      this.setState({
+        IsAdded: res.data[0][0].status
+      })
+    }).catch((err) => {
+      alert("Something Went Wrong")
+    })
+    window.location.reload()
+  }
 
   render() {
     const DonationType = this.state.DonationTypeList;
@@ -252,11 +254,11 @@ handleSave(params){
             <Modal.Title>देणगीची नोंद जोडा</Modal.Title>
           </Modal.Header>
           {this.state.IsAdded === 1 ? <Alert key="success" variant="success">Donation Is Added</Alert> :
-           this.state.IsAdded === 0  ? <Alert key="danger" variant="danger">Something Went Wrong</Alert>:
-           ""
+            this.state.IsAdded === 0 ? <Alert key="danger" variant="danger">Something Went Wrong</Alert> :
+              ""
           }
           <Modal.Body>
-            <Form>
+            <Form validated="true">
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridDonnationType">
                   <Form.Label>देणगीचा प्रकार</Form.Label>
@@ -269,43 +271,44 @@ handleSave(params){
                 <Form.Group as={Col} id="formGridProduct">
                   <Form.Label>वस्तु</Form.Label>
                   <Select
-                  maxMenuHeight={220}
-                  menuPlacement="auto"
-                  value={this.state.SelectedProduct}
-                  options={ProductList}
-                  onInputChange={this.onInputChange}
-                  onChange={this.onChange}
+                    maxMenuHeight={220}
+                    menuPlacement="auto"
+                    value={this.state.SelectedProduct}
+                    options={ProductList}
+                    onInputChange={this.onInputChange}
+                    onChange={this.onChange}
+                    defaultValue={1}
                   />
                 </Form.Group>
               </Row>
               <Row className="mb-3">
                 <Form.Group as={Col}>
                   <Form.Label>रेकॉर्ड तारीख</Form.Label>
-                  <Form.Control id="RecordDate" type='date' onChange={this.handleFormDataChange}/>
+                  <Form.Control  required id="RecordDate" type='date' onChange={this.handleFormDataChange} />
                 </Form.Group>
                 <Form.Group as={Col} >
                   <Form.Label>मात्रा(Kg)</Form.Label>
-                  <Form.Control id="Quantity" type='Number' onChange={this.handleFormDataChange}/>
+                  <Form.Control required id="Quantity" type='Number' onChange={this.handleFormDataChange} />
                 </Form.Group>
-                </Row>
-                <Row className="mb-3">
+              </Row>
+              <Row className="mb-3">
                 <Form.Group as={Col} >
                   <Form.Label>रक्कम</Form.Label>
-                  <Form.Control id="Amount" type='Number' onChange={this.handleFormDataChange}/>
+                  <Form.Control required id="Amount" type='Number' onChange={this.handleFormDataChange} />
                 </Form.Group>
                 <Form.Group as={Col} >
                   <Form.Label>विद्यार्थी संख्या</Form.Label>
-                  <Form.Control id="PersonCount" type='Number' onChange={this.handleFormDataChange}/>
+                  <Form.Control required id="PersonCount" type='Number' onChange={this.handleFormDataChange} />
                 </Form.Group>
               </Row>
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose} > 
-            बंद
+            <Button variant="secondary" onClick={this.handleClose} >
+              बंद
             </Button>
             <Button variant="primary" onClick={this.handleSave}>
-            देणगीची नोंद जोडा
+              देणगीची नोंद जोडा
             </Button>
           </Modal.Footer>
         </Modal>
@@ -321,12 +324,12 @@ handleSave(params){
               </Col>
               <Col xs="auto">
                 <Button type="submit" className="mb-2" onClick={this.handleGridData}>
-                क्लिक करा
+                  क्लिक करा
                 </Button>
               </Col>
               <Col xs="auto" >
                 <Button className="mb-2" variant="primary" onClick={this.handleShow}>
-                देणगीची नोंद जोडा
+                  देणगीची नोंद जोडा
                 </Button>
               </Col>
             </Row>

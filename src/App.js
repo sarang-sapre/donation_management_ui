@@ -13,7 +13,7 @@ import Reports from "./Pages/Reports/report";
 function App() {
   return (
 <div className="App">
-<Header />
+<Header IS_ACTIVE={Boolean(localStorage.getItem('ActiveSession')) ? true : false}/>
 <BrowserRouter>
 <Routes>
 <Route path="/" element={ Boolean(localStorage.getItem('ActiveSession')) ? <Dashboard /> :<LogIn />} />

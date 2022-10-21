@@ -1,24 +1,28 @@
 import React from 'react';
 import '../Header/header.css';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 import ReactLogo from '../../../src/Logo_2.png';
 
 function Header(props) {
+  console.log(props)
   return (
-    <Navbar bg="dark" fixed="top">
-    <Container>
-      <Navbar.Brand href="/Dashboard">
-        <img
-          src={ReactLogo}
-          width="80"
-          height="80"
-          className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
-      </Navbar.Brand>
-    </Container>
-  </Navbar>
+    <nav className="navbar navbar-expand navbar-light bg-dark fixed-top">
+      <div className="container">
+        <a href="/Dashboard" className="navbar-brand ">
+          <img
+            src={ReactLogo}
+            width={80}
+            height={80}
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+            float="left"
+          />{" "}
+          <div className="heading">
+          <text className="title">द पुना स्कूल ऑफ ब्लाइंड्स</text>
+          </div>
+        </a>
+      </div>
+    </nav>
+
   );
 }
 

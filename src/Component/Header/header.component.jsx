@@ -20,6 +20,12 @@ function Header(props) {
           <text className="title">द पुना स्कूल ऑफ ब्लाइंड्स</text>
           </div>
         </a>
+        <a href="/" className="navbar-brand ">
+          {
+            
+            props.IS_ACTIVE ? <button type="button" class="btn btn-outline-warning" onClick={(e) => {localStorage.removeItem('ActiveSession')}}> बाहेर पडणे </button> : ""
+          }
+        </a>
       </div>
     </nav>
 

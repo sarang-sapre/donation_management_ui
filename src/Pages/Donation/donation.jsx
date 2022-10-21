@@ -249,7 +249,7 @@ handleSave(params){
       <>
         <Modal show={this.state.ModelShow} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Add Donation</Modal.Title>
+            <Modal.Title>देणगीची नोंद जोडा</Modal.Title>
           </Modal.Header>
           {this.state.IsAdded === 1 ? <Alert key="success" variant="success">Donation Is Added</Alert> :
            this.state.IsAdded === 0  ? <Alert key="danger" variant="danger">Something Went Wrong</Alert>:
@@ -259,7 +259,7 @@ handleSave(params){
             <Form>
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridDonnationType">
-                  <Form.Label>Donation Type</Form.Label>
+                  <Form.Label>देणगीचा प्रकार</Form.Label>
                   <Form.Select id='DonationType' defaultValue="Choose Type" value={this.state.SelectedDonationType} onChange={this.handleFormDataChange}>
                     {
                       DonationType.map((e) => <option key={e.ID} value={e.ID}>{e.DONATION_TYPE}</option>)
@@ -267,7 +267,7 @@ handleSave(params){
                   </Form.Select>
                 </Form.Group>
                 <Form.Group as={Col} id="formGridProduct">
-                  <Form.Label>Product</Form.Label>
+                  <Form.Label>वस्तु</Form.Label>
                   <Select
                   maxMenuHeight={220}
                   menuPlacement="auto"
@@ -280,21 +280,21 @@ handleSave(params){
               </Row>
               <Row className="mb-3">
                 <Form.Group as={Col}>
-                  <Form.Label>Record Date</Form.Label>
+                  <Form.Label>रेकॉर्ड तारीख</Form.Label>
                   <Form.Control id="RecordDate" type='date' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 <Form.Group as={Col} >
-                  <Form.Label>Quantity(Kg)</Form.Label>
+                  <Form.Label>मात्रा(Kg)</Form.Label>
                   <Form.Control id="Quantity" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 </Row>
                 <Row className="mb-3">
                 <Form.Group as={Col} >
-                  <Form.Label>Amount</Form.Label>
+                  <Form.Label>रक्कम</Form.Label>
                   <Form.Control id="Amount" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 <Form.Group as={Col} >
-                  <Form.Label>Person Count</Form.Label>
+                  <Form.Label>विद्यार्थी संख्या</Form.Label>
                   <Form.Control id="PersonCount" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
               </Row>
@@ -302,10 +302,10 @@ handleSave(params){
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose} > 
-              Close
+            बंद
             </Button>
             <Button variant="primary" onClick={this.handleSave}>
-              Save Changes
+            देणगीची नोंद जोडा
             </Button>
           </Modal.Footer>
         </Modal>
@@ -321,12 +321,12 @@ handleSave(params){
               </Col>
               <Col xs="auto">
                 <Button type="submit" className="mb-2" onClick={this.handleGridData}>
-                  Submit
+                क्लिक करा
                 </Button>
               </Col>
               <Col xs="auto" >
                 <Button className="mb-2" variant="primary" onClick={this.handleShow}>
-                  Add Donation
+                देणगीची नोंद जोडा
                 </Button>
               </Col>
             </Row>

@@ -11,13 +11,13 @@ function TaskCard(props) {
   return (
     
     <Card border="secondary" style={{ width: '15rem' }} >
-       <Card.Img variant="top" src={props.title === 'Reports'? ReportImage : props.title === 'Add Donation' ? DonateImage : props.title === 'Add Usage' ? UsageImage:ItemImage} />
+       <Card.Img variant="top" src={props.title === 'रिपोर्ट'? ReportImage : props.title === 'देणगी' ? DonateImage : props.title === 'खर्च' ? UsageImage:ItemImage} />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>
           {props.text}
         </Card.Text>
-        <Button variant="primary" href={props.path}>Go To {props.title}</Button>
+        <Button variant="primary" href={props.path}>{props.title}</Button>
       </Card.Body>
     </Card>
   );

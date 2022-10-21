@@ -9,7 +9,7 @@ function Dashboard() {
 
     return(
         <div className="main">
-        <Row xs={1} md={4} className="g-4">
+        <Row xs={4} md={4} className="g-4">
        {
 
         Items.map((e) => (

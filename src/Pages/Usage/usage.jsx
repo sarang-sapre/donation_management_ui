@@ -21,7 +21,7 @@ class Usage extends React.Component {
       from_date: '',
       to_date: '',
       ModelShow: false,
-      columnDef: [{ field: 'USAGE_TYPE' }, { field: 'PRODUCT_NM', filter: 'agTextColumnFilter' }, { field: 'QUANTITY', filter: 'agNumberColumnFilter' },{ field: 'AMOUNT', filter: 'agNumberColumnFilter' }, { field: 'PERSON_COUNT', filter: 'agNumberColumnFilter' }, { field: 'RECORD_DATE', type: ['dateColumn', 'nonEditableColumn'], width: 220, }],
+      columnDef: [{ field: 'USAGE_TYPE' ,headerName:'खर्च प्रकार'}, { field: 'PRODUCT_NM', filter: 'agTextColumnFilter',headerName:'वस्तूचे नाव' }, { field: 'QUANTITY', filter: 'agNumberColumnFilter', headerName:'मात्रा' },{ field: 'AMOUNT', filter: 'agNumberColumnFilter' ,headerName:'रक्कम'}, { field: 'PERSON_COUNT', filter: 'agNumberColumnFilter',headerName:'विद्यार्थी संख्या' }, { field: 'RECORD_DATE', type: ['dateColumn', 'nonEditableColumn'], width: 220, headerName:'तारिख'}],
       rowData: null,
       defaultColDef: {
         sortable: true,
@@ -33,9 +33,9 @@ class Usage extends React.Component {
       rowClassRules : {
         'government':(params) => {
             var Type = params.data.USAGE_TYPE
-            return (Type === 'GOVERNMENT')
+            return (Type === 'सरकार')
         },
-       'private' : 'data.USAGE_TYPE === "PRIVATE"'
+       'private' : 'data.USAGE_TYPE === "खाजगी"'
 
     },
       rowModelType: 'serverSide',
@@ -257,9 +257,9 @@ handleSave(params){
       <>
         <Modal show={this.state.ModelShow} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Add Usage</Modal.Title>
+            <Modal.Title>खर्च रेकॉर्ड जोडा</Modal.Title>
           </Modal.Header>
-          {this.state.IsAdded === 1 ? <Alert key="success" variant="success">Usage Is Added</Alert> :
+          {this.state.IsAdded === 1 ? <Alert key="success" variant="success">खर्च जोडला आहे</Alert> :
            this.state.IsAdded === 0  ? <Alert key="danger" variant="danger">{this.state.IsResMsg}</Alert>:
            ""
           }
@@ -267,7 +267,7 @@ handleSave(params){
             <Form>
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridDonnationType">
-                  <Form.Label>Usage Type</Form.Label>
+                  <Form.Label>खर्च प्रकार</Form.Label>
                   <Form.Select id='UsageType' defaultValue="Choose Type" value={this.state.SelectedUsageType} onChange={this.handleFormDataChange}>
                     {
                       UsageType.map((e) => <option key={e.ID} value={e.ID}>{e.DONATION_TYPE}</option>)
@@ -275,7 +275,7 @@ handleSave(params){
                   </Form.Select>
                 </Form.Group>
                 <Form.Group as={Col} id="formGridProduct">
-                  <Form.Label>Product</Form.Label>
+                  <Form.Label>वस्तु</Form.Label>
                   <Select
                   maxMenuHeight={220}
                   menuPlacement="auto"
@@ -288,21 +288,21 @@ handleSave(params){
               </Row>
               <Row className="mb-3">
                 <Form.Group as={Col}>
-                  <Form.Label>Record Date</Form.Label>
+                  <Form.Label>रेकॉर्ड तारीख</Form.Label>
                   <Form.Control id="RecordDate" type='date' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 <Form.Group as={Col} >
-                  <Form.Label>Quantity(Kg)</Form.Label>
+                  <Form.Label>मात्रा(Kg)</Form.Label>
                   <Form.Control id="Quantity" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 </Row>
                 <Row className="mb-3">
                 <Form.Group as={Col} >
-                  <Form.Label>Amount</Form.Label>
+                  <Form.Label>रक्कम</Form.Label>
                   <Form.Control id="Amount" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 <Form.Group as={Col} >
-                  <Form.Label>Person Count</Form.Label>
+                  <Form.Label>विद्यार्थी संख्या</Form.Label>
                   <Form.Control id="PersonCount" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
               </Row>
@@ -310,10 +310,10 @@ handleSave(params){
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose} > 
-              Close
+            बंद
             </Button>
             <Button variant="primary" onClick={this.handleSave}>
-              Save Changes
+            खर्च रेकॉर्ड जोडा
             </Button>
           </Modal.Footer>
         </Modal>
@@ -329,12 +329,12 @@ handleSave(params){
               </Col>
               <Col xs="auto">
                 <Button type="submit" className="mb-2" onClick={this.handleGridData}>
-                  Submit
+                क्लिक करा
                 </Button>
               </Col>
               <Col xs="auto" >
                 <Button className="mb-2" variant="primary" onClick={this.handleShow}>
-                  Add Usage
+                खर्च रेकॉर्ड जोडा
                 </Button>
               </Col>
             </Row>

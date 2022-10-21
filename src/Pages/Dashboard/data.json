@@ -1,26 +1,26 @@
 [
     {
-      "title": "Add Donation",
+      "title": "देणगी",
       "img": "../Dashboard/images/reports.png",
       "path": "/AddDonation",
-      "text": "Add the donation record"
+      "text": "देणगीची नोंद जोडा"
     },
     {
-      "title": "Add Usage",
+      "title": "खर्च",
       "img": "../Dashboard/images/reports.png",
       "path": "/AddUsage",
-      "text": "Add the usage record"
+      "text": "खर्च रेकॉर्ड जोडा"
     },
     {
-      "title": "Add Item",
+      "title": "वस्तु",
       "img": "../Dashboard/images/reports.png",
       "path": "/AddItem",
-      "text": "Add New Items "
+      "text": "नवीन वस्तु जोडा"
     },
     {
-      "title": "Reports",
+      "title": "रिपोर्ट",
       "img": "/reports.png",
       "path": "/Reports",
-      "text": "Genrate and download reports Daily/Monthly/Yearly"
+      "text": "तयार करा आणि डाउनलोड करा रिपोर्ट दैनिक/मासिक/वार्षिक"
     }
   ]

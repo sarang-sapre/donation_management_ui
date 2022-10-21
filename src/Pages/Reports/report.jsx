@@ -142,16 +142,16 @@ class Reports extends React.Component {
                             <Form.Label>Report Type</Form.Label>
                             <Form.Select id='ReportType' defaultValue="Choose Type" onChange={this.handleChange}>
                             <option value="">Select Option</option>
-                                <option value={1}>Donation</option>
-                                <option value={2}>Usage</option>
+                                <option value={1}>जमा</option>
+                                <option value={2}>खर्च</option>
                             </Form.Select>
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridReportType">
                             <Form.Label>Data Type</Form.Label>
                             <Form.Select id='DataType' defaultValue="Choose Type" onChange={this.handleChange}>
                             <option value="">Select Option</option>
-                                <option value={1}>GOVERNMENT</option>
-                                <option value={2}>PRIVATE</option>
+                                <option value={1}>सरकार</option>
+                                <option value={2}>खाजगी</option>
                             </Form.Select>
                         </Form.Group>
                         <Form.Group as={Col} id="formGridIntervalType">
@@ -215,7 +215,7 @@ class Reports extends React.Component {
                             disabled={this.state.ReportType === null && this.state.DonationType === null && this.state.IntervalType === null ? true :false}
                             onClick={this.handleSubmit}
                         >
-                            Generate And Download
+                            तयार करा आणि डाउनलोड
                         </Button>
                     </Row>
 

@@ -18,7 +18,7 @@ class ProductList extends React.Component {
     super();
     this.state = {
       ModelShow: false,
-      columnDef: [{ field: 'ID' , width: 220, headerName:'ITEM ID'}, { field: 'PRODUCT_NM', filter: 'agTextColumnFilter', width: 220, headerName:'ITEM NAME'}],
+      columnDef: [{ field: 'ID' , width: 220, headerName:'वस्तु संख्या'}, { field: 'PRODUCT_NM', filter: 'agTextColumnFilter', width: 220, headerName:'वस्तूचे नाव'}],
       rowData: null,
       defaultColDef: {
         sortable: true,
@@ -135,7 +135,7 @@ handleSave(params){
       <>
         <Modal show={this.state.ModelShow} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Add Item</Modal.Title>
+            <Modal.Title>नवीन वस्तु जोडा</Modal.Title>
           </Modal.Header>
           {this.state.IsAdded === 1 ? <Alert key="success" variant="success">Donation Is Added</Alert> :
            this.state.IsAdded === 0  ? <Alert key="danger" variant="danger">Something Went Wrong</Alert>:
@@ -145,7 +145,7 @@ handleSave(params){
             <Form>
               <Row className="mb-3">
                 <Form.Group as={Col}>
-                  <Form.Label>Item name</Form.Label>
+                  <Form.Label>वस्तूचे नाव</Form.Label>
                   <Form.Control id="ItemName" type='text' onChange={this.handleChange}/>
                 </Form.Group>
               </Row>
@@ -153,10 +153,10 @@ handleSave(params){
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose} > 
-              Close
+            बंद
             </Button>
             <Button variant="primary" onClick={this.handleSave}>
-              Save Changes
+            नवीन वस्तु जोडा
             </Button>
           </Modal.Footer>
         </Modal>
@@ -166,7 +166,7 @@ handleSave(params){
             <Row>
               <Col xs="auto" >
                 <Button className="mb-2" variant="primary" onClick={this.handleShow}>
-                  Add Item
+                नवीन वस्तु जोडा
                 </Button>
               </Col>
             </Row>

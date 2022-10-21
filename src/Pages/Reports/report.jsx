@@ -103,7 +103,7 @@ class Reports extends React.Component {
             donation_type:this.state.DonationType,
             month:this.state.Month,
             year:this.state.Year,
-            date_form:this.state.from_date,
+            date_from:this.state.from_date,
             date_to:this.state.to_date
           }
           console.log(bodyData)

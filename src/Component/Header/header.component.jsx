@@ -6,7 +6,7 @@ function Header(props) {
   console.log(props)
   return (
     <nav className="navbar navbar-expand navbar-light bg-dark fixed-top">
-      <div className="container">
+      <div className="container fluid">
         <a href="/Dashboard" className="navbar-brand ">
           <img
             src={ReactLogo}

@@ -51,7 +51,7 @@ class Donation extends React.Component {
       Person_count: 0,
       Amount: 0,
       IsAdded: null,
-      IsValidation:false
+      IsValidation:true
     }
 
     this.GirdData = this.GirdData.bind(this);
@@ -247,6 +247,7 @@ class Donation extends React.Component {
   render() {
     const DonationType = this.state.DonationTypeList;
     const ProductList = this.state.ProductList;
+    const isEnabled = (this.state.SelectedDonationType === null) || (this.state.SelectedProduct === null) || (this.state.Quantity === 0) || (this.state.RecordDate === null);
     return (
       <>
         <Modal show={this.state.ModelShow} onHide={this.handleClose}>
@@ -288,17 +289,17 @@ class Donation extends React.Component {
                 </Form.Group>
                 <Form.Group as={Col} >
                   <Form.Label>मात्रा(Kg)</Form.Label>
-                  <Form.Control required id="Quantity" type='Number' onChange={this.handleFormDataChange} />
+                  <Form.Control required id="Quantity" type='Decimal' onChange={this.handleFormDataChange} />
                 </Form.Group>
               </Row>
               <Row className="mb-3">
                 <Form.Group as={Col} >
                   <Form.Label>रक्कम</Form.Label>
-                  <Form.Control required id="Amount" type='Number' onChange={this.handleFormDataChange} />
+                  <Form.Control  id="Amount" type='Decimal' onChange={this.handleFormDataChange} />
                 </Form.Group>
                 <Form.Group as={Col} >
                   <Form.Label>विद्यार्थी संख्या</Form.Label>
-                  <Form.Control required id="PersonCount" type='Number' onChange={this.handleFormDataChange} />
+                  <Form.Control  id="PersonCount" type='Number' onChange={this.handleFormDataChange} />
                 </Form.Group>
               </Row>
             </Form>
@@ -307,7 +308,7 @@ class Donation extends React.Component {
             <Button variant="secondary" onClick={this.handleClose} >
               बंद
             </Button>
-            <Button variant="primary" onClick={this.handleSave}>
+            <Button variant="primary" onClick={this.handleSave} disabled={isEnabled}>
               देणगीची नोंद जोडा
             </Button>
           </Modal.Footer>
@@ -323,7 +324,7 @@ class Donation extends React.Component {
                 <Form.Control id='2' type='date' placeholder='To date' value={this.state.to_date} onChange={this.handleDateChange} />
               </Col>
               <Col xs="auto">
-                <Button type="submit" className="mb-2" onClick={this.handleGridData}>
+                <Button type="submit" className="mb-2" onClick={this.handleGridData} >
                   क्लिक करा
                 </Button>
               </Col>

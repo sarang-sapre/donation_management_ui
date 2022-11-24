@@ -253,6 +253,7 @@ handleSave(params){
   render() {
     const UsageType = this.state.UsageTypeList;
     const ProductList = this.state.ProductList;
+    const isEnabled = (this.state.SelectedDonationType === null) || (this.state.SelectedProduct === null) || (this.state.Quantity === 0) || (this.state.RecordDate === null);
     return (
       <>
         <Modal show={this.state.ModelShow} onHide={this.handleClose}>
@@ -299,11 +300,11 @@ handleSave(params){
                 <Row className="mb-3">
                 <Form.Group as={Col} >
                   <Form.Label>रक्कम</Form.Label>
-                  <Form.Control required id="Amount" type='Number' onChange={this.handleFormDataChange}/>
+                  <Form.Control  id="Amount" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
                 <Form.Group as={Col} >
                   <Form.Label>विद्यार्थी संख्या</Form.Label>
-                  <Form.Control required id="PersonCount" type='Number' onChange={this.handleFormDataChange}/>
+                  <Form.Control  id="PersonCount" type='Number' onChange={this.handleFormDataChange}/>
                 </Form.Group>
               </Row>
             </Form>
@@ -312,7 +313,7 @@ handleSave(params){
             <Button variant="secondary" onClick={this.handleClose} > 
             बंद
             </Button>
-            <Button variant="primary" onClick={this.handleSave}>
+            <Button variant="primary" onClick={this.handleSave} disabled={isEnabled}>
             खर्च रेकॉर्ड जोडा
             </Button>
           </Modal.Footer>

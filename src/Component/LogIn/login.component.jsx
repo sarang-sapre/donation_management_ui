@@ -71,7 +71,7 @@ class LogIn extends React.Component {
                         islogin: 1
                     })
                     localStorage.setItem('ActiveSession',obj.status);
-                    window.location.assign('http://13.233.29.162/dashboard')
+                    window.location.assign('http://13.233.119.196/dashboard')
 
                 } else {
                     alert("Something Went Wrong")

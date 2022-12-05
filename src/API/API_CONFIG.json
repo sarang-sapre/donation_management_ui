@@ -1,12 +1,12 @@
 {
-    "SignIN": "http://13.233.29.162:8080/SignIn",
-    "ForgotPasswor": "http://13.233.29.162:8080/ForgotPassword",
-    "GetDonation" :"http://13.233.29.162:8080/GetDonation",
-    "GetDonationType":"http://13.233.29.162:8080/GetDonationType",
-    "GetProductList":"http://13.233.29.162:8080/GetProductList",
-    "AddDonation":"http://13.233.29.162:8080/AddDonation",
-    "GetUsage" :"http://13.233.29.162:8080/GetUsage",
-    "AddProduct":"http://13.233.29.162:8080/AddProduct",
-    "DonationReport":"http://13.233.29.162:8080/DonationReport",
-    "UsageReport":"http://13.233.29.162:8080/UsageReport"
+    "SignIN": "http://13.233.119.196:8080/SignIn",
+    "ForgotPasswor": "http://13.233.119.196:8080/ForgotPassword",
+    "GetDonation" :"http://13.233.119.196:8080/GetDonation",
+    "GetDonationType":"http://13.233.119.196:8080/GetDonationType",
+    "GetProductList":"http://13.233.119.196:8080/GetProductList",
+    "AddDonation":"http://13.233.119.196:8080/AddDonation",
+    "GetUsage" :"http://13.233.119.196:8080/GetUsage",
+    "AddProduct":"http://13.233.119.196:8080/AddProduct",
+    "DonationReport":"http://13.233.119.196:8080/DonationReport",
+    "UsageReport":"http://13.233.119.196:8080/UsageReport"
 }
